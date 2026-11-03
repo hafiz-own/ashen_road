@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9502824b15a75aceeb9abaff0e0f9b14, type: 3}
+  m_Name: shambler
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.CharacterArt
+  clips:
+  - name: walk
+    frames:
+    - {fileID: 21300000, guid: d1342aee4af4d93b2b776441b9b70a7b, type: 3}
+    - {fileID: 21300000, guid: 9dc76eb4e6aff5210b6e18538bf39418, type: 3}
+    - {fileID: 21300000, guid: cfb9139fe32805412a65ade2e7816a6e, type: 3}
+    - {fileID: 21300000, guid: d219d339600bce30f9b9d7ff6a90ec92, type: 3}
+    - {fileID: 21300000, guid: b4145065d07af0030b16fb3285fd56a7, type: 3}
+    - {fileID: 21300000, guid: 646c616064e3c6b4ab466039d56fdc7c, type: 3}
+    - {fileID: 21300000, guid: 41c395777b2aded5488386dfa264fb55, type: 3}
+    - {fileID: 21300000, guid: 51968bbefc6907bddbb32676dafa348c, type: 3}
+    fps: 8
+    loop: 1
+  - name: rise
+    frames:
+    - {fileID: 21300000, guid: 14529678956f0c7c986565fe1bcce306, type: 3}
+    - {fileID: 21300000, guid: adea3beab67f10e6cb008b33e791575a, type: 3}
+    - {fileID: 21300000, guid: 476b3869061b857f790f4140287a7a90, type: 3}
+    - {fileID: 21300000, guid: 4d08c128642fdf0b68c3ec31ac211672, type: 3}
+    - {fileID: 21300000, guid: 2dc2d1145798d2e1abca56c7e361db35, type: 3}
+    - {fileID: 21300000, guid: 72bde6bfe138a7987baef28daab18936, type: 3}
+    fps: 10
+    loop: 0

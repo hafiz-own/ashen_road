@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9502824b15a75aceeb9abaff0e0f9b14, type: 3}
+  m_Name: runner
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.CharacterArt
+  clips:
+  - name: walk
+    frames:
+    - {fileID: 21300000, guid: 96eafed0b3e18ff47a438415c34eb0fd, type: 3}
+    - {fileID: 21300000, guid: 25587efa35f516024beb8903f569230b, type: 3}
+    - {fileID: 21300000, guid: e185c6327e00dd906b4734cff0587e8d, type: 3}
+    - {fileID: 21300000, guid: 5aa9a099b5b61387fa6403f9b376b1b7, type: 3}
+    - {fileID: 21300000, guid: f450906b66bc195458cfd88505a6f08f, type: 3}
+    - {fileID: 21300000, guid: 36b22d6042a13ddcf8cbf8af46411597, type: 3}
+    - {fileID: 21300000, guid: e11af4ee9c4881bb1ac34fc3f2df7fdc, type: 3}
+    - {fileID: 21300000, guid: ed2f32e5f1b026126a82cecb1d4a08ec, type: 3}
+    fps: 14
+    loop: 1

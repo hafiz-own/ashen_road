@@ -18,7 +18,8 @@ namespace AshenRoad.UI
             Text credits = UIFactory.Text("Credits", transform, style,
                 "ASHEN ROAD  ·  EC-334 Game Design and Development\n\n" +
                 "Hassan Ayoub  ·  Hafiz Own  ·  Abdul Basit\n\n" +
-                "Characters, fonts, sounds: Kenney (kenney.nl), CC0\n" +
+                "Art: Gothicvania by Luis Zuno (ansimuz), CC0\n" +
+                "Fonts, items, sounds: Kenney (kenney.nl), CC0\n" +
                 "Music: Juhani Junkala, Retro Game Music Pack, CC0\n" +
                 "Built with Unity and C#",
                 24, TextAnchor.MiddleCenter, style.textDim);

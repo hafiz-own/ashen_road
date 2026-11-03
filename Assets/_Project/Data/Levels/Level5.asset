@@ -51,13 +51,35 @@ MonoBehaviour:
   movingPlatformSpeed: 2.2
   hints:
   - The mine is caving in. Watch the roof for falling rocks.
-  topTile: {fileID: 21300000, guid: dddaf98a22aa1517eb13d7702d8e0ca9, type: 3}
-  fillTile: {fileID: 21300000, guid: 215c560e0f05a7e6a856256fe516ab96, type: 3}
-  platformTile: {fileID: 21300000, guid: e247937a9ed487b19b7016e7a792b64c, type: 3}
-  sky: {fileID: 21300000, guid: 4680d28f0dbd0b913a20552359e83df9, type: 3}
-  farLayer: {fileID: 21300000, guid: 193f5f86351ec3ba8bf322a543df86f8, type: 3}
-  nearLayer: {fileID: 21300000, guid: 33ef6c84108bcb4019c9c2f4dd945678, type: 3}
+  topTile: {fileID: 21300000, guid: 1c414cdce032ce238916850e1d726573, type: 3}
+  fillTile: {fileID: 21300000, guid: 3491c5398b632055fb2c0ed1c509e953, type: 3}
+  platformTile: {fileID: 21300000, guid: 73f78b5ce898b9329aa6539714b838bc, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: 1c414cdce032ce238916850e1d726573, type: 3}
+  - {fileID: 21300000, guid: 6ef59dad0e3ee7986b30d0aa941d3ec2, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: 3491c5398b632055fb2c0ed1c509e953, type: 3}
+  - {fileID: 21300000, guid: da10b764c28488208b18069183eedb8d, type: 3}
+  - {fileID: 21300000, guid: beae55645230cd6078b28ab14eac35c2, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: c1aeb82b53d01fe43bccbc61897ca6e7, type: 3}
+  sky: {fileID: 21300000, guid: 79d9b1accb50550fcb11edfeba0992fb, type: 3}
+  farLayer: {fileID: 0}
+  nearLayer: {fileID: 0}
+  skyTint: {r: 0.7, g: 0.65, b: 0.6, a: 1}
+  farTint: {r: 1, g: 1, b: 1, a: 1}
+  nearTint: {r: 1, g: 1, b: 1, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: 6048367152c6305a09e36a8bab96f98a, type: 3}
+  - {fileID: 21300000, guid: 825ab905bba68ba47893aef24999e8a1, type: 3}
+  - {fileID: 21300000, guid: 80dc1b797f085de1ba6af806751d3ae0, type: 3}
+  - {fileID: 21300000, guid: f799ec3a04edf874d9be0d337d100984, type: 3}
+  - {fileID: 21300000, guid: bdc624f9dacd606a3b148321a146e6ad, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: 54c49f32966f08e22a16c8649e9e3c6e, type: 3}
+  backdropSpacing: 10
+  backdropTint: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   disaster: 4
   frontName: cave-in
   frontFrames:

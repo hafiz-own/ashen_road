@@ -15,10 +15,11 @@ MonoBehaviour:
   displayName: Brute
   layoutSymbol: 66
   prefab: {fileID: 1275334589748676999, guid: 31e5ed32fcd5500cfa648653f0a44557, type: 3}
-  sprite: {fileID: 21300000, guid: 12ac0d43adf15762d9b8b590b8ec5a51, type: 3}
-  tint: {r: 0.6, g: 0.62, b: 0.75, a: 1}
-  scale: 1.5
-  colliderSize: {x: 0.65, y: 0.9}
+  sprite: {fileID: 21300000, guid: 0badab28b7e5185609f3a68cfe6c0f86, type: 3}
+  art: {fileID: 11400000, guid: a4ac571a09f565817a0eec3443f449e2, type: 2}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  scale: 1
+  colliderSize: {x: 0.95, y: 1.8}
   maxHealth: 5
   patrolSpeed: 0.7
   chaseSpeed: 2
@@ -27,14 +28,14 @@ MonoBehaviour:
   sightRange: 6
   loseTargetTime: 2
   attackStyle: 2
-  attackRange: 1.5
+  attackRange: 1.9
   attackDamage: 1
   attackTelegraph: 0.8
   attackActive: 0.2
   attackRecovery: 1.1
   chargeSpeed: 9
-  attackHitboxSize: {x: 1.6, y: 1.4}
-  attackHitboxOffset: {x: 0.6, y: 0.45}
+  attackHitboxSize: {x: 1.8, y: 1.8}
+  attackHitboxOffset: {x: 0.9, y: 0.9}
   attackKnockback: 10
   contactDamage: 1
   contactKnockback: 9

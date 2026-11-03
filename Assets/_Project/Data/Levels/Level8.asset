@@ -50,13 +50,32 @@ MonoBehaviour:
   movingPlatformRange: 4
   movingPlatformSpeed: 2.2
   hints: []
-  topTile: {fileID: 21300000, guid: 97b22263105c764b8b40b3e795130f0c, type: 3}
-  fillTile: {fileID: 21300000, guid: 67755513f5bba602dad83d6c07e5bc1b, type: 3}
-  platformTile: {fileID: 21300000, guid: 8d14eba2397bb7f54b1e99509e70a4ee, type: 3}
-  sky: {fileID: 21300000, guid: 2cbb0421f1da9b81caa7dd8c9167659e, type: 3}
-  farLayer: {fileID: 21300000, guid: 77d82278e5945a8728dcb854caf4f288, type: 3}
-  nearLayer: {fileID: 21300000, guid: be225fb12777849448040b251573010a, type: 3}
+  topTile: {fileID: 21300000, guid: 6b7376151654c9d7b9ad054344e775de, type: 3}
+  fillTile: {fileID: 21300000, guid: 648e3ecd350b91240b851d753e1ff94c, type: 3}
+  platformTile: {fileID: 21300000, guid: efe9e95845f0da44c95ff2639243f702, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: 6b7376151654c9d7b9ad054344e775de, type: 3}
+  - {fileID: 21300000, guid: fde35e58f44ddca1f815bf8aa8fb80ef, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: 648e3ecd350b91240b851d753e1ff94c, type: 3}
+  - {fileID: 21300000, guid: ee09df70a6329e88f9af42551390f0e6, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: 2ae18c17ea759d45d95d57bb756cfede, type: 3}
+  sky: {fileID: 21300000, guid: 7b2e9302966488137b04979b90f86a73, type: 3}
+  farLayer: {fileID: 21300000, guid: 052e1e1f5c8da03e183f0d3bbfd9d612, type: 3}
+  nearLayer: {fileID: 21300000, guid: 6a1f2821d971282ec872d9aad1ebd269, type: 3}
+  skyTint: {r: 0.9, g: 0.8, b: 0.85, a: 1}
+  farTint: {r: 0.6, g: 0.55, b: 0.65, a: 1}
+  nearTint: {r: 0.55, g: 0.5, b: 0.6, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: 825ab905bba68ba47893aef24999e8a1, type: 3}
+  - {fileID: 21300000, guid: 6048367152c6305a09e36a8bab96f98a, type: 3}
+  - {fileID: 21300000, guid: 5132dac2c4af2cff792968b50e77f48c, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: 54c49f32966f08e22a16c8649e9e3c6e, type: 3}
+  backdropSpacing: 9
+  backdropTint: {r: 0.75, g: 0.7, b: 0.8, a: 1}
   disaster: 7
   frontName: crumbling wall
   frontFrames:

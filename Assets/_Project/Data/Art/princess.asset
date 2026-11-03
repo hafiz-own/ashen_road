@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9502824b15a75aceeb9abaff0e0f9b14, type: 3}
+  m_Name: princess
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.CharacterArt
+  clips:
+  - name: idle
+    frames:
+    - {fileID: 21300000, guid: 03f55b3ae15e8bde39756f7564ed3a05, type: 3}
+    - {fileID: 21300000, guid: db746e95a89cc537db647f69b4be8e8d, type: 3}
+    - {fileID: 21300000, guid: 4448853bc3b1dd624b7773a0ac77a159, type: 3}
+    - {fileID: 21300000, guid: 98bb712ec085ddc24b600ed9566920bd, type: 3}
+    - {fileID: 21300000, guid: f75b69489d08d42428ff10fd93bef701, type: 3}
+    - {fileID: 21300000, guid: 40993712bbe961f04b98f3fd94796f03, type: 3}
+    - {fileID: 21300000, guid: ae390fd89a728a631aa79f518cbe1319, type: 3}
+    fps: 6
+    loop: 1

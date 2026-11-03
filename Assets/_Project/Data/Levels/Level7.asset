@@ -50,13 +50,34 @@ MonoBehaviour:
   movingPlatformRange: 4
   movingPlatformSpeed: 2.2
   hints: []
-  topTile: {fileID: 21300000, guid: 56eadd9debdddd5089977ce13c357ead, type: 3}
-  fillTile: {fileID: 21300000, guid: dd3bea7e4ed2b6d65bef7dbcf646cea8, type: 3}
-  platformTile: {fileID: 21300000, guid: 4be1e4814541e7c28b568285e4dbe01b, type: 3}
-  sky: {fileID: 21300000, guid: a26e5a474ca1c4de989e78e9d050fc0f, type: 3}
-  farLayer: {fileID: 21300000, guid: a5e5fdefbc5cbdb2680d2f80ff98e425, type: 3}
-  nearLayer: {fileID: 21300000, guid: 260276658f24763a2b6c98d3d01beab1, type: 3}
+  topTile: {fileID: 21300000, guid: ab1e69afa8cee637aa09478972cefd04, type: 3}
+  fillTile: {fileID: 21300000, guid: 3e10ae22b4934f031b6f5354852144dd, type: 3}
+  platformTile: {fileID: 21300000, guid: a958079110b6922ce83ff649f94e7576, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: ab1e69afa8cee637aa09478972cefd04, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: 3e10ae22b4934f031b6f5354852144dd, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: c5d95dc35c81ac24995be108a855542b, type: 3}
+  sky: {fileID: 21300000, guid: d2dc376f24ae0c1439c66aca894aa594, type: 3}
+  farLayer: {fileID: 21300000, guid: f2a3f95047d7211889d7063579fe35d0, type: 3}
+  nearLayer: {fileID: 21300000, guid: cf558c9ac9dd8e1fca560aeebdc1ffd1, type: 3}
+  skyTint: {r: 1, g: 0.75, b: 0.6, a: 1}
+  farTint: {r: 0.9, g: 0.6, b: 0.5, a: 1}
+  nearTint: {r: 0.85, g: 0.7, b: 0.65, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: 825ab905bba68ba47893aef24999e8a1, type: 3}
+  - {fileID: 21300000, guid: 6048367152c6305a09e36a8bab96f98a, type: 3}
+  - {fileID: 21300000, guid: 1ddd2d5d4a61bd0d588ff4e86e8eaf81, type: 3}
+  - {fileID: 21300000, guid: 5132dac2c4af2cff792968b50e77f48c, type: 3}
+  - {fileID: 21300000, guid: 3eeb63ec843c2759680dd686d3fa8aa3, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: d2fc21144cc29724dad26944503b83b3, type: 3}
+  - {fileID: 21300000, guid: 7705fbd861bc745638bfe3a035d7d79b, type: 3}
+  - {fileID: 21300000, guid: 4bbe1c8d51a82489cb3d03e83f47750c, type: 3}
+  backdropSpacing: 18
+  backdropTint: {r: 0.85, g: 0.75, b: 0.7, a: 1}
   disaster: 6
   frontName: firestorm
   frontFrames:

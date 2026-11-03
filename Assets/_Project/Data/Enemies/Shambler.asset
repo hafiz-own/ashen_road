@@ -15,10 +15,11 @@ MonoBehaviour:
   displayName: Shambler
   layoutSymbol: 83
   prefab: {fileID: 1275334589748676999, guid: 31e5ed32fcd5500cfa648653f0a44557, type: 3}
-  sprite: {fileID: 21300000, guid: aa6a3bbe90b4b48759ce9817205c8071, type: 3}
-  tint: {r: 0.62, g: 0.85, b: 0.55, a: 1}
+  sprite: {fileID: 21300000, guid: d1342aee4af4d93b2b776441b9b70a7b, type: 3}
+  art: {fileID: 11400000, guid: 88ad9b02526ff1f7bb6e70b921c617d9, type: 2}
+  tint: {r: 1, g: 1, b: 1, a: 1}
   scale: 1
-  colliderSize: {x: 0.6, y: 0.9}
+  colliderSize: {x: 0.55, y: 1.25}
   maxHealth: 2
   patrolSpeed: 0.8
   chaseSpeed: 1.5
@@ -33,8 +34,8 @@ MonoBehaviour:
   attackActive: 0.15
   attackRecovery: 0.9
   chargeSpeed: 9
-  attackHitboxSize: {x: 1.1, y: 1}
-  attackHitboxOffset: {x: 0.55, y: 0.5}
+  attackHitboxSize: {x: 1.1, y: 1.1}
+  attackHitboxOffset: {x: 0.55, y: 0.6}
   attackKnockback: 6
   contactDamage: 1
   contactKnockback: 6

@@ -53,13 +53,41 @@ MonoBehaviour:
   - The ground splits open behind you.
   - Brutes shrug off your sword. Jump over them or roll through.
   - Lure Brutes into the flames to destroy them.
-  topTile: {fileID: 21300000, guid: 43ea24d96f8a6db3db063b30335fed86, type: 3}
-  fillTile: {fileID: 21300000, guid: be1de6cf44bab668097b25d3dac89c5b, type: 3}
-  platformTile: {fileID: 21300000, guid: 672f2af3d4f4844e3aa8e0c4babcb55b, type: 3}
-  sky: {fileID: 21300000, guid: 04ad84689cd54e1e8a46ec28e16afa8a, type: 3}
-  farLayer: {fileID: 21300000, guid: a9981bb508ad6a17e865fc4406aa43aa, type: 3}
-  nearLayer: {fileID: 21300000, guid: 5eb1e1d7c1cbb2a31b4ec6406f9240b0, type: 3}
+  topTile: {fileID: 21300000, guid: 4904112763853e95483631610b0eeafe, type: 3}
+  fillTile: {fileID: 21300000, guid: f2212160e8dda154fbe0c9e5f9f89168, type: 3}
+  platformTile: {fileID: 21300000, guid: 08259cbaf27b06e21878783733d5da39, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: 4904112763853e95483631610b0eeafe, type: 3}
+  - {fileID: 21300000, guid: 13803471700c224548680a9d0a653914, type: 3}
+  - {fileID: 21300000, guid: 32cde9e4f0f0efc02ba31b1d2b05c4a0, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: f2212160e8dda154fbe0c9e5f9f89168, type: 3}
+  - {fileID: 21300000, guid: 9167c001b3f29638f922c3d301733177, type: 3}
+  - {fileID: 21300000, guid: 55b3cd4020cd60ec78134f21ebf21bcf, type: 3}
+  - {fileID: 21300000, guid: ee5a2591a0c8c41eda7e1825c5ef8372, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: 25577b257ecbca62496e9a45467f6efe, type: 3}
+  sky: {fileID: 21300000, guid: e89ac939d9d189af49e346e37538dbcb, type: 3}
+  farLayer: {fileID: 21300000, guid: 01ff568db715daba182c0a8dbd0cd7bd, type: 3}
+  nearLayer: {fileID: 21300000, guid: bd9371c2ba390fdee94fe933e6190d60, type: 3}
+  skyTint: {r: 1, g: 1, b: 1, a: 1}
+  farTint: {r: 1, g: 1, b: 1, a: 1}
+  nearTint: {r: 1, g: 1, b: 1, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: 524e3aaba2abf975eb5c32f5c47e9470, type: 3}
+  - {fileID: 21300000, guid: c49ae62a1c91a880b9325c948aedef10, type: 3}
+  - {fileID: 21300000, guid: 2133d06d30c711e81a94eaee281c2591, type: 3}
+  - {fileID: 21300000, guid: 914f876a1b57c83a0a5c5ff3d4d4420b, type: 3}
+  - {fileID: 21300000, guid: 94dfe6bcb7292f92c93e261898d83305, type: 3}
+  - {fileID: 21300000, guid: bcb2c1d7750bcf70594ea1f7706c0b75, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: 8f317be0f8c568d6d8ac4c05ffbaa12f, type: 3}
+  - {fileID: 21300000, guid: 376bb0ce3c087d156a1f937cd037aab0, type: 3}
+  - {fileID: 21300000, guid: c6fbd91d3197c7119946730877f1be21, type: 3}
+  - {fileID: 21300000, guid: 994a1be2db4f7fcd6945bd7edbff18da, type: 3}
+  backdropSpacing: 12
+  backdropTint: {r: 0.85, g: 0.85, b: 0.95, a: 1}
   disaster: 3
   frontName: opening fissures
   frontFrames:

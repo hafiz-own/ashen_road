@@ -52,13 +52,37 @@ MonoBehaviour:
   hints:
   - The flood rises from the west.
   - Runners charge when they see you. Dodge, then strike.
-  topTile: {fileID: 21300000, guid: c92c71db83adeac0796363a08bfee6ff, type: 3}
-  fillTile: {fileID: 21300000, guid: d25f688240bd8c406b0a12b18a5521c6, type: 3}
-  platformTile: {fileID: 21300000, guid: a9ae223710f0071398b34472c159509d, type: 3}
-  sky: {fileID: 21300000, guid: 44bbf92990d255384aef9aa76d15b943, type: 3}
-  farLayer: {fileID: 21300000, guid: d3d30663c4949909ea2bfc13b37f6567, type: 3}
-  nearLayer: {fileID: 21300000, guid: 915a8e14147516b118ec5775bf40b569, type: 3}
+  topTile: {fileID: 21300000, guid: 5f60f407062c8db74a6e7c86caab626c, type: 3}
+  fillTile: {fileID: 21300000, guid: 8b1291b9fb969208c974b7b890997bbd, type: 3}
+  platformTile: {fileID: 21300000, guid: b3ffeb2cac60aab5897e2348e4e6d354, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: 5f60f407062c8db74a6e7c86caab626c, type: 3}
+  - {fileID: 21300000, guid: 334765ecb5460237d9c57842bf17787d, type: 3}
+  - {fileID: 21300000, guid: 4d07d0aa27bdf7ad4931604c64aa2e82, type: 3}
+  - {fileID: 21300000, guid: e54f8a9e256082dc0963649342b1bc40, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: 8b1291b9fb969208c974b7b890997bbd, type: 3}
+  - {fileID: 21300000, guid: 62771f986339e52468b784317f7d0547, type: 3}
+  - {fileID: 21300000, guid: c16da167acc3b60ca8df9a0974f64b26, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: 3b23e02b410dba5418f632019ab11485, type: 3}
+  sky: {fileID: 21300000, guid: 226fe59b9403d6d488a6936b1b9d2b82, type: 3}
+  farLayer: {fileID: 21300000, guid: f5f3c4ba96502f9c890657265aa590ac, type: 3}
+  nearLayer: {fileID: 21300000, guid: c7235700656a5f9509c7d409e80c1101, type: 3}
+  skyTint: {r: 1, g: 1, b: 1, a: 1}
+  farTint: {r: 1, g: 1, b: 1, a: 1}
+  nearTint: {r: 0.85, g: 0.9, b: 0.85, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: bbc4753ac33f386828ae95d3a1a7d371, type: 3}
+  - {fileID: 21300000, guid: 2ded61e0f36d59795b73e65682c7f799, type: 3}
+  - {fileID: 21300000, guid: b91c7212eafca38138489fc0887250e6, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: c6fbd91d3197c7119946730877f1be21, type: 3}
+  - {fileID: 21300000, guid: 8f317be0f8c568d6d8ac4c05ffbaa12f, type: 3}
+  - {fileID: 21300000, guid: 994a1be2db4f7fcd6945bd7edbff18da, type: 3}
+  backdropSpacing: 15
+  backdropTint: {r: 0.8, g: 0.85, b: 0.8, a: 1}
   disaster: 2
   frontName: rising flood
   frontFrames:

@@ -33,8 +33,8 @@ MonoBehaviour:
   swingCooldown: 0.35
   swingLunge: 2.5
   attackMoveMultiplier: 0.4
-  swordHitboxSize: {x: 1.4, y: 1.2}
-  swordHitboxOffset: {x: 0.8, y: 0.05}
+  swordHitboxSize: {x: 1.9, y: 1.3}
+  swordHitboxOffset: {x: 0.95, y: 0.65}
   swordKnockback: 5
   maxHearts: 3
   hurtInvulnerability: 1

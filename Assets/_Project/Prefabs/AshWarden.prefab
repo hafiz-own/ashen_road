@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8227869805468214371}
   - component: {fileID: 4946309049236005076}
+  - component: {fileID: 375960649953354949}
   m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
@@ -92,6 +93,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &375960649953354949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484411330203729696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a3664b949a6d3749a1091d6bec02f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Visual.SpriteAnimator
+  target: {fileID: 4946309049236005076}
+  art: {fileID: 11400000, guid: fc8cd958463bde41597acec77f0db6be, type: 2}
 --- !u!1 &3259400214455707009
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,3 +423,4 @@ MonoBehaviour:
   boss: {fileID: 4455148862751827640}
   body: {fileID: 8227869805468214371}
   bodyRenderer: {fileID: 4946309049236005076}
+  frames: {fileID: 375960649953354949}

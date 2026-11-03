@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9502824b15a75aceeb9abaff0e0f9b14, type: 3}
+  m_Name: knight
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.CharacterArt
+  clips:
+  - name: idle
+    frames:
+    - {fileID: 21300000, guid: 96df15e66b890bcb79ff57c8dd3ffcb5, type: 3}
+    - {fileID: 21300000, guid: 877f49ab4bdb9d28fb36371a7dd36058, type: 3}
+    - {fileID: 21300000, guid: 8353438979f0f47da94ef1deb2493495, type: 3}
+    - {fileID: 21300000, guid: ec7f7e062ff7b7fc3bb605ddebe57f89, type: 3}
+    fps: 6
+    loop: 1
+  - name: run
+    frames:
+    - {fileID: 21300000, guid: 899a552dbf3a31e5d85bb3e8a974c943, type: 3}
+    - {fileID: 21300000, guid: 8f13afb470f4538819613fbd26a358d0, type: 3}
+    - {fileID: 21300000, guid: bdfba6796479505b9ac5506f1ee3772d, type: 3}
+    - {fileID: 21300000, guid: 317d12016fdc7098bae2d355bd296de3, type: 3}
+    - {fileID: 21300000, guid: d5341502cd25e8790be7a7b2e0170b1a, type: 3}
+    - {fileID: 21300000, guid: ec5815b0ace2caee19049d615cb73c43, type: 3}
+    fps: 12
+    loop: 1
+  - name: jump
+    frames:
+    - {fileID: 21300000, guid: 9e391f7ca00e163d6a6003d80dbb01fa, type: 3}
+    - {fileID: 21300000, guid: 00b1534ec36d8883db4e6853627126f1, type: 3}
+    - {fileID: 21300000, guid: 1d2e3c353a7e48d22ab432f2782b7f02, type: 3}
+    - {fileID: 21300000, guid: 2290e6c63f24dd6619d60935e6e8e6ec, type: 3}
+    fps: 8
+    loop: 0
+  - name: attack
+    frames:
+    - {fileID: 21300000, guid: 54ba422c375817158a821fbfd1d20645, type: 3}
+    - {fileID: 21300000, guid: 75ad9f3b64b8e7e698c5ebc16c293e94, type: 3}
+    - {fileID: 21300000, guid: fc2d5b434ab4b0ea8b01fb04b8fcf951, type: 3}
+    - {fileID: 21300000, guid: d54462f8678648b7eaf8403c253ec082, type: 3}
+    - {fileID: 21300000, guid: 2ae45b59ab34a2dce88d0ba29b8b9e56, type: 3}
+    fps: 20
+    loop: 0
+  - name: hurt
+    frames:
+    - {fileID: 21300000, guid: 991bacaae4b296b92b51c50d4b0d8e19, type: 3}
+    fps: 1
+    loop: 1
+  - name: crouch
+    frames:
+    - {fileID: 21300000, guid: 8fa261a53958eb5c283446967a210614, type: 3}
+    fps: 1
+    loop: 1

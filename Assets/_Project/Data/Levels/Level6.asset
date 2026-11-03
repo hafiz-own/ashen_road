@@ -52,13 +52,36 @@ MonoBehaviour:
   hints:
   - Lightning chases you along the cliffs.
   - Ride the moving platforms across the gaps.
-  topTile: {fileID: 21300000, guid: 887f61f4079c92266adbd12f802f4d0d, type: 3}
-  fillTile: {fileID: 21300000, guid: c706d7ee02066a505b2d8802c24e110c, type: 3}
-  platformTile: {fileID: 21300000, guid: 2d20a65cf3ddbf3ff84a08597920ffad, type: 3}
-  sky: {fileID: 21300000, guid: b5126c8e09da33b3fa662c2b175157fe, type: 3}
-  farLayer: {fileID: 21300000, guid: 889300ba61c87162cb6e97783fc761f0, type: 3}
-  nearLayer: {fileID: 21300000, guid: 0e8c075a4679d9f3dacdf977907c2dbc, type: 3}
+  topTile: {fileID: 21300000, guid: 49531bb5f8d5464238d1b66b2b991262, type: 3}
+  fillTile: {fileID: 21300000, guid: 1329447807016aa93bc01937cab0f85b, type: 3}
+  platformTile: {fileID: 21300000, guid: 9120a0464a9e7e04991171a24b8ef9f6, type: 3}
+  topTiles:
+  - {fileID: 21300000, guid: 49531bb5f8d5464238d1b66b2b991262, type: 3}
+  - {fileID: 21300000, guid: 7751ee4f046a062fa8a390c10bcdfc63, type: 3}
+  fillTiles:
+  - {fileID: 21300000, guid: 1329447807016aa93bc01937cab0f85b, type: 3}
+  - {fileID: 21300000, guid: 632d9f61905667cb0a41f774845a06a8, type: 3}
+  - {fileID: 21300000, guid: 05eb0d25e27c18d5aa402e2eb17b72d6, type: 3}
+  - {fileID: 21300000, guid: 1d6a2dab21eb939eb823e0b1e91c1cb4, type: 3}
+  deepTiles:
+  - {fileID: 21300000, guid: 0c761f354cd41979681e2de7c71335f5, type: 3}
+  sky: {fileID: 21300000, guid: f02505ccf7ce39f6abba80d02001c0c5, type: 3}
+  farLayer: {fileID: 21300000, guid: 4e8006fdd3f291a6483976e56bf58a31, type: 3}
+  nearLayer: {fileID: 21300000, guid: 58163b1737079ed44afb25511baf8728, type: 3}
+  skyTint: {r: 0.75, g: 0.8, b: 1, a: 1}
+  farTint: {r: 0.7, g: 0.75, b: 0.95, a: 1}
+  nearTint: {r: 0.45, g: 0.45, b: 0.6, a: 1}
   ambient: {r: 1, g: 1, b: 1, a: 1}
+  decorations:
+  - {fileID: 21300000, guid: 83fe6c659f2b5b6c582445611aab3bfb, type: 3}
+  - {fileID: 21300000, guid: 04d3d6ede0e7425b58042d10c2496932, type: 3}
+  - {fileID: 21300000, guid: f799ec3a04edf874d9be0d337d100984, type: 3}
+  - {fileID: 21300000, guid: bdc624f9dacd606a3b148321a146e6ad, type: 3}
+  backdropProps:
+  - {fileID: 21300000, guid: 8f317be0f8c568d6d8ac4c05ffbaa12f, type: 3}
+  - {fileID: 21300000, guid: c6fbd91d3197c7119946730877f1be21, type: 3}
+  backdropSpacing: 22
+  backdropTint: {r: 0.6, g: 0.6, b: 0.75, a: 1}
   disaster: 5
   frontName: lightning storm
   frontFrames:

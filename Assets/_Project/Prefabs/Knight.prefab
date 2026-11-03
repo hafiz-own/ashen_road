@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8969143018658928278}
   - component: {fileID: 7641681301181929275}
+  - component: {fileID: 3524445876462100704}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: bff040d575366f659b11b619d798b8dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96df15e66b890bcb79ff57c8dd3ffcb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,6 +93,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &3524445876462100704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368209365954896455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a3664b949a6d3749a1091d6bec02f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Visual.SpriteAnimator
+  target: {fileID: 7641681301181929275}
+  art: {fileID: 11400000, guid: e2dc8d534dcfdc0319980adb26727557, type: 2}
 --- !u!1 &2135648906852283099
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,8 +209,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.46}
-  m_Size: {x: 0.6, y: 0.9}
+  m_Offset: {x: 0, y: 0.635}
+  m_Size: {x: 0.6, y: 1.25}
   m_Direction: 0
 --- !u!114 &8579574251185259768
 MonoBehaviour:
@@ -267,6 +282,7 @@ MonoBehaviour:
   body: {fileID: 8969143018658928278}
   bodyRenderer: {fileID: 7641681301181929275}
   sword: {fileID: 8133741986627162710}
+  frames: {fileID: 3524445876462100704}
 --- !u!1 &5265602966857376237
 GameObject:
   m_ObjectHideFlags: 0

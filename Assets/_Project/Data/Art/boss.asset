@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9502824b15a75aceeb9abaff0e0f9b14, type: 3}
+  m_Name: boss
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.CharacterArt
+  clips:
+  - name: idle
+    frames:
+    - {fileID: 21300000, guid: 0c073bc296f2cf43999f381d537decb1, type: 3}
+    - {fileID: 21300000, guid: cf19c4cab746e1970b71d97b909078ad, type: 3}
+    - {fileID: 21300000, guid: 4d0ac8212432b3892a78447c2c119652, type: 3}
+    - {fileID: 21300000, guid: bbf9492589784f3139d6860fdd592ed9, type: 3}
+    - {fileID: 21300000, guid: d98ad7b6d2a220cdb84c1bf6d18f476e, type: 3}
+    - {fileID: 21300000, guid: e0d9bc06870855da58a972c4c8732dd0, type: 3}
+    fps: 7
+    loop: 1
+  - name: attack
+    frames:
+    - {fileID: 21300000, guid: 0fce76519684c9041aaaeda644df3e84, type: 3}
+    - {fileID: 21300000, guid: 4c899c264fb44b0c1ac76af5c43a8f80, type: 3}
+    - {fileID: 21300000, guid: f2519d62be1105444ba2b7824be0455e, type: 3}
+    - {fileID: 21300000, guid: c5f0acb078891dfc3812a0e3819ae6b7, type: 3}
+    - {fileID: 21300000, guid: 6c9f58021f843d361b978bc079730920, type: 3}
+    - {fileID: 21300000, guid: ac5b4dd0140e9b4f69c750b3e28daa8b, type: 3}
+    - {fileID: 21300000, guid: 410587012b108fb279f2f0b30bbea85d, type: 3}
+    - {fileID: 21300000, guid: 5e9f0a7023d9ebce5a2698eaf6bccdc2, type: 3}
+    fps: 12
+    loop: 0

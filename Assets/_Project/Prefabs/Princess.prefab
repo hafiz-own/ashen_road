@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Visual.Princess
   body: {fileID: 788625777276915760}
+  frames: {fileID: 1215950180542611422}
 --- !u!1 &4883377845150021918
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7585240773407592946}
@@ -149,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788625777276915760}
   - component: {fileID: 4014061749394717231}
+  - component: {fileID: 1215950180542611422}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -220,7 +222,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 12
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 74dc944d64d4351a187f874609a6a8db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03f55b3ae15e8bde39756f7564ed3a05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -231,3 +233,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1215950180542611422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5712107452944775213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a3664b949a6d3749a1091d6bec02f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Visual.SpriteAnimator
+  target: {fileID: 4014061749394717231}
+  art: {fileID: 11400000, guid: 786f770a6a1edf71aa28f5ea4b0a2e2f, type: 2}
