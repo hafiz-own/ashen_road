@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Enemies.EnemyPerception
   sightRange: 5
   memory: 2
-  rearFactor: 0.4
+  rearFactor: 0.7
   verticalRange: 2.5
   eyeHeight: 0.5
 --- !u!114 &806656537220165663

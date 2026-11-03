@@ -9,7 +9,7 @@ namespace AshenRoad.Enemies
     {
         [SerializeField] float sightRange = 5f;
         [SerializeField] float memory = 2f;
-        [SerializeField] float rearFactor = 0.4f;
+        [SerializeField] float rearFactor = 0.7f;
         [SerializeField] float verticalRange = 2.5f;
         [SerializeField] float eyeHeight = 0.5f;
 

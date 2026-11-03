@@ -86,7 +86,7 @@ CHARACTERS = {
         "hurt": lambda: [load(CEM + "hero/hero-hurt/hero-hurt.png")],
         "crouch": lambda: [load(CEM + "hero/hero-crouch/hero-crouch.png")],
     }),
-    "shambler": dict(cx=17, feet=52, flip=False, clips={
+    "shambler": dict(cx=17, feet=52, flip=True, clips={
         "walk": lambda: files(CEM + "skeleton-clothed/skeleton-clothed-{}.png", 8),
         "rise": lambda: files(CEM + "skeleton-rise-clothed/skeleton-rise-clothed-{}.png", 6),
     }),

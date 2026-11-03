@@ -12,6 +12,8 @@ namespace AshenRoad.Enemies.States
         public override void Enter()
         {
             pauseUntil = Time.time + Random.Range(0f, enemy.Data.patrolPause);
+            // the first walk goes toward the knight's side of the anchor
+            if (Perception.Target != null) Motor.Face(Perception.DirectionToTarget);
         }
 
         public override void FixedTick(float dt)

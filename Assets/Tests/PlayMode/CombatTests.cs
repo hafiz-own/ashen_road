@@ -180,5 +180,23 @@ namespace AshenRoad.Tests
             }
             Assert.Less(k.Health.Current, k.Health.Max);
         }
+
+        [UnityTest]
+        public IEnumerator Enemies_SpawnFacingTheKnight_AndComeTowardHim()
+        {
+            world.Ground(-20f, 20f);
+            PlayerController k = world.Knight(new Vector2(-4f, 0.1f));
+            foreach (string type in new[] { "Shambler", "Runner", "Brute" })
+            {
+                EnemyAI e = world.Enemy(type, new Vector2(2f, 0.1f), k);
+                Assert.AreEqual(-1, e.Motor.Facing, type + " faces the knight on spawn");
+                float startX = e.transform.position.x;
+                float until = Time.time + 2.5f;
+                while (e.transform.position.x > startX - 0.5f && Time.time < until) { k.Health.Heal(3); yield return null; }
+                Assert.Less(e.transform.position.x, startX - 0.4f, type + " moves toward the knight");
+                Object.Destroy(e.gameObject);
+                yield return null;
+            }
+        }
     }
 }

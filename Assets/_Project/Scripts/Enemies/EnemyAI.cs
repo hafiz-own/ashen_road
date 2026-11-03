@@ -89,6 +89,8 @@ namespace AshenRoad.Enemies
             Attack = new EnemyAttackState(this);
             Stunned = new EnemyStunnedState(this);
             Dead = new EnemyDeadState(this);
+            // start out facing the way the knight will come from, so they notice him instead of showing their backs
+            if (target != null) Motor.Face(target.Position.x < transform.position.x ? -1 : 1);
             Machine.ChangeState(Patrol);
         }
 
