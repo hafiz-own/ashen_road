@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3618042b42e6fc8288227a76798d558e, type: 3}
+  m_Name: LevelPrefabs
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.LevelPrefabs
+  player: {fileID: 2135648906852283099, guid: 27ed2a1ae23c0cfb59e00503a87349b7, type: 3}
+  checkpoint: {fileID: 2699930926591104704, guid: 7dff1c372c3531ebbada1c18385e254d, type: 3}
+  exitGate: {fileID: 2146154038623522132, guid: f9af4b9aec38d3a9c95173fb4887ddf9, type: 3}
+  heartPickup: {fileID: 9021151452724811628, guid: eb98bd0cbacf8db178bc2f463a714291, type: 3}
+  firePatch: {fileID: 6967394170422449054, guid: 9071179bf6c85b1ebb8cd0239895b264, type: 3}
+  fallingDebris: {fileID: 8221352120461790046, guid: 0d68c517d5e9d69319e392c7028a9c5a, type: 3}
+  spikes: {fileID: 5431157850853938836, guid: b1b1fa4dc652ed96d920ef7f05f19ae9, type: 3}
+  movingPlatform: {fileID: 2198501883281313955, guid: 26049e897b108917b9ead129be4eb942, type: 3}
+  sign: {fileID: 5511783837771029231, guid: b4fc1bea7916c86b1bdeaa455ccd057d, type: 3}
+  boss: {fileID: 7647361884361768428, guid: e6d0f83b4e6b899d4b945dda2b52ef9f, type: 3}
+  princess: {fileID: 2658224324026833244, guid: ca7a87387fc061a03922f5db1f720ae4, type: 3}
+  arenaWall: {fileID: 8439072876313837380, guid: 0c71e8db1458560de8db2d2285f6c916, type: 3}
+  disasterFront: {fileID: 440676104438669168, guid: b891e9b6f10bf974fa48488a1fc8e4e5, type: 3}
+  decoration: {fileID: 4793993685954034573, guid: 490236eb55b70852a8fbe3b4c1719eea, type: 3}
+  decorationSprites:
+  - {fileID: 21300000, guid: a96b6489719b2506c9b7f46b44657e0f, type: 3}
+  - {fileID: 21300000, guid: cdf8697ab3fd39927beb14cf266eba7c, type: 3}

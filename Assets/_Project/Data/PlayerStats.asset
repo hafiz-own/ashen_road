@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76718ae58dce54d0a983ca35893cb751, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.PlayerStats
+  maxSpeed: 8
+  acceleration: 60
+  deceleration: 70
+  airControl: 0.65
+  jumpHeight: 3.2
+  timeToApex: 0.38
+  fallGravityMultiplier: 1.6
+  jumpCutMultiplier: 0.45
+  maxFallSpeed: 18
+  coyoteTime: 0.1
+  jumpBuffer: 0.12
+  rollDuration: 0.35
+  rollSpeed: 12
+  rollCooldown: 0.8
+  swordDamage: 1
+  swingWindup: 0.05
+  swingActive: 0.12
+  swingRecovery: 0.13
+  swingCooldown: 0.35
+  swingLunge: 2.5
+  attackMoveMultiplier: 0.4
+  swordHitboxSize: {x: 1.4, y: 1.2}
+  swordHitboxOffset: {x: 0.8, y: 0.05}
+  swordKnockback: 5
+  maxHearts: 3
+  hurtInvulnerability: 1
+  hurtStunTime: 0.3
+  hurtKnockback: {x: 7, y: 7}

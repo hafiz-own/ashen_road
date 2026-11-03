@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6d5b80ae73a5fc5aa461f4bca413f0, type: 3}
+  m_Name: Runner
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.EnemyData
+  displayName: Runner
+  layoutSymbol: 82
+  prefab: {fileID: 1275334589748676999, guid: 31e5ed32fcd5500cfa648653f0a44557, type: 3}
+  sprite: {fileID: 21300000, guid: 39ba3372e4be13c16b3d65fb620f6615, type: 3}
+  tint: {r: 0.85, g: 0.8, b: 0.5, a: 1}
+  scale: 1
+  colliderSize: {x: 0.6, y: 0.85}
+  maxHealth: 1
+  patrolSpeed: 1.5
+  chaseSpeed: 4.5
+  patrolRadius: 3
+  patrolPause: 1
+  sightRange: 9
+  loseTargetTime: 1.5
+  attackStyle: 1
+  attackRange: 5
+  attackDamage: 1
+  attackTelegraph: 0.45
+  attackActive: 0.6
+  attackRecovery: 1
+  chargeSpeed: 9
+  attackHitboxSize: {x: 0.9, y: 0.9}
+  attackHitboxOffset: {x: 0.3, y: 0.45}
+  attackKnockback: 7
+  contactDamage: 1
+  contactKnockback: 6
+  immunities: 
+  stunDuration: 0.25
+  knockbackResistance: 0
+  despawnDelay: 1.2
+  deathSound: enemy_death

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d50799af629c67b583a4da460fd63fc, type: 3}
+  m_Name: LevelCatalog
+  m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.Data.LevelCatalog
+  levels:
+  - {fileID: 11400000, guid: 69aadef19c73ab6ceb5514d298ecf055, type: 2}
+  - {fileID: 11400000, guid: 92305d91f308f82c5b693cc21fc93962, type: 2}
+  - {fileID: 11400000, guid: b035298caea458016a1ba40ca2627457, type: 2}
+  - {fileID: 11400000, guid: b6d079f3ad6f9d375aae568286492dda, type: 2}
+  - {fileID: 11400000, guid: ef2ac13c8786efd5790b5d6b7febc911, type: 2}
+  - {fileID: 11400000, guid: af0bf28013cc2afe395aff100a19bab7, type: 2}
+  - {fileID: 11400000, guid: 46211c8ed56dadf63a14bc09d3493585, type: 2}
+  - {fileID: 11400000, guid: 3e994cc7394a09f85898990e7314e4e6, type: 2}
+  enemyTypes:
+  - {fileID: 11400000, guid: 6bf23662ec296245f90e7de060f6590d, type: 2}
+  - {fileID: 11400000, guid: d8c6118969a4b6e029cbb24baadce33e, type: 2}
+  - {fileID: 11400000, guid: c892e4a3963e4922b9fc43138978ea84, type: 2}
+  boss: {fileID: 11400000, guid: 543e12a2ed81a6c87ad74579e94346d5, type: 2}
+  playerStats: {fileID: 11400000, guid: 962397b78532f63c9a30bb61947b7336, type: 2}
