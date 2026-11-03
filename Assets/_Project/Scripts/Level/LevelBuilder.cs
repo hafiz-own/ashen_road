@@ -19,21 +19,42 @@ namespace AshenRoad.Level
         [SerializeField] BoxCollider2D rightWall;
         [SerializeField] BoxCollider2D killZone;
 
-        Tile topTile, fillTile, platformTile;
+        Tile[] topTiles, fillTiles, deepTiles;
+        Tile platformTile;
 
         public BuiltLevel Build(LevelData data, LevelPrefabs prefabs, LevelCatalog catalog)
         {
             LevelLayout layout = LevelLayout.Parse(data.layout);
             var built = new BuiltLevel { Layout = layout };
 
-            topTile = MakeTile(data.topTile);
-            fillTile = MakeTile(data.fillTile);
+            topTiles = MakeTiles(data.topTiles, data.topTile);
+            fillTiles = MakeTiles(data.fillTiles, data.fillTile);
+            deepTiles = MakeTiles(data.deepTiles, data.fillTile);
+            if (deepTiles.Length == 0) deepTiles = fillTiles;
             platformTile = MakeTile(data.platformTile, Tile.ColliderType.Grid);
 
             PaintTiles(layout);
             BuildBoundaries(layout, built);
             PlaceMarkers(data, prefabs, catalog, layout, built);
+            PlaceBackdrop(data, layout);
             return built;
+        }
+
+        static Tile[] MakeTiles(Sprite[] variants, Sprite fallback)
+        {
+            var list = new List<Tile>();
+            if (variants != null)
+                foreach (Sprite s in variants)
+                    if (s != null) list.Add(MakeTile(s));
+            if (list.Count == 0 && fallback != null) list.Add(MakeTile(fallback));
+            return list.ToArray();
+        }
+
+        /// <summary>Stable pseudo-random pick so the same level always looks the same.</summary>
+        static T Pick<T>(T[] options, int x, int y)
+        {
+            int h = (x * 73856093) ^ (y * 19349663);
+            return options[(h & 0x7fffffff) % options.Length];
         }
 
         static Tile MakeTile(Sprite sprite, Tile.ColliderType collider = Tile.ColliderType.Grid)
@@ -58,7 +79,9 @@ namespace AshenRoad.Level
                     if (layout.IsSolid(x, y))
                     {
                         solidPositions.Add(new Vector3Int(x, y, 0));
-                        solidTiles.Add(layout.IsSolid(x, y + 1) ? fillTile : topTile);
+                        int depth = 0;
+                        while (depth < 3 && layout.IsSolid(x, y + depth + 1)) depth++;
+                        solidTiles.Add(depth == 0 ? Pick(topTiles, x, y) : depth == 1 ? Pick(fillTiles, x, y) : Pick(deepTiles, x, y));
                     }
                     else if (layout.IsOneWay(x, y))
                     {
@@ -71,7 +94,7 @@ namespace AshenRoad.Level
                     for (int y = -1; y >= -6; y--)
                     {
                         solidPositions.Add(new Vector3Int(x, y, 0));
-                        solidTiles.Add(fillTile);
+                        solidTiles.Add(Pick(deepTiles, x, y));
                     }
                 }
             }
@@ -193,8 +216,8 @@ namespace AshenRoad.Level
                     case 'd':
                         GameObject deco = Spawn(prefabs.decoration, pos);
                         var sr = deco.GetComponentInChildren<SpriteRenderer>();
-                        if (sr != null && prefabs.decorationSprites.Length > 0)
-                            sr.sprite = prefabs.decorationSprites[(m.X * 7 + m.Y * 3) % prefabs.decorationSprites.Length];
+                        Sprite[] decor = data.decorations != null && data.decorations.Length > 0 ? data.decorations : prefabs.decorationSprites;
+                        if (sr != null && decor.Length > 0) sr.sprite = decor[(m.X * 7 + m.Y * 3) % decor.Length];
                         break;
                 }
             }
@@ -205,6 +228,52 @@ namespace AshenRoad.Level
                 built.ArenaMinX = arenaXs[0] + 1f;
                 built.ArenaMaxX = arenaXs[1];
             }
+        }
+
+        /// <summary>
+        /// Big scenery (houses, trees, ruins) standing behind the road every few tiles. Only placed where the ground
+        /// under the whole prop is flat, so nothing hangs over a pit.
+        /// </summary>
+        void PlaceBackdrop(LevelData data, LevelLayout layout)
+        {
+            if (data.backdropProps == null || data.backdropProps.Length == 0) return;
+            Transform root = new GameObject("Backdrop").transform;
+            root.SetParent(propsRoot != null ? propsRoot : transform, false);
+            int index = 0;
+            float x = 6f;
+            while (x < layout.Width - 4)
+            {
+                Sprite s = data.backdropProps[index % data.backdropProps.Length];
+                if (s == null) { index++; continue; }
+                int half = Mathf.Max(1, Mathf.CeilToInt(s.bounds.extents.x * 0.6f));
+                int cx = Mathf.FloorToInt(x);
+                int ground = SurfaceAt(layout, cx);
+                bool flat = ground >= 0;
+                for (int dx = -half; dx <= half && flat; dx++)
+                    flat = SurfaceAt(layout, cx + dx) == ground;
+                if (flat)
+                {
+                    var go = new GameObject("Backdrop_" + s.name);
+                    go.transform.SetParent(root, false);
+                    go.transform.position = new Vector3(cx + 0.5f, ground, 2f);
+                    var sr = go.AddComponent<SpriteRenderer>();
+                    sr.sprite = s;
+                    sr.color = data.backdropTint;
+                    sr.sortingOrder = -10;
+                    index++;
+                    x += data.backdropSpacing + ((cx * 31) % 5);
+                }
+                else x += 2f;
+            }
+        }
+
+        /// <summary>Height a character stands at in column x (top of the highest ground), or -1 for a pit.</summary>
+        static int SurfaceAt(LevelLayout layout, int x)
+        {
+            if (x < 0 || x >= layout.Width) return -1;
+            for (int y = layout.Height - 1; y >= 0; y--)
+                if (layout.IsSolid(x, y)) return y + 1;
+            return -1;
         }
 
         GameObject Spawn(GameObject prefab, Vector2 position)

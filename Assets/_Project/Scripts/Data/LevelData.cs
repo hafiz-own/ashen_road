@@ -37,10 +37,26 @@ namespace AshenRoad.Data
         public Sprite topTile;
         public Sprite fillTile;
         public Sprite platformTile;
+        [Tooltip("Optional variations, picked per cell so the ground doesn't look stamped.")]
+        public Sprite[] topTiles = new Sprite[0];
+        public Sprite[] fillTiles = new Sprite[0];
+        [Tooltip("Used two or more tiles below the surface.")]
+        public Sprite[] deepTiles = new Sprite[0];
         public Sprite sky;
         public Sprite farLayer;
         public Sprite nearLayer;
+        public Color skyTint = Color.white;
+        public Color farTint = Color.white;
+        public Color nearTint = Color.white;
         public Color ambient = Color.white;
+
+        [Header("Scenery")]
+        [Tooltip("Small props for 'd' cells: barrels, stones, plants.")]
+        public Sprite[] decorations = new Sprite[0];
+        [Tooltip("Big props placed behind the road every few tiles: houses, trees, ruins.")]
+        public Sprite[] backdropProps = new Sprite[0];
+        public float backdropSpacing = 14f;
+        public Color backdropTint = new Color(0.75f, 0.75f, 0.8f, 1f);
 
         [Header("Disaster front")]
         public DisasterType disaster = DisasterType.Fire;

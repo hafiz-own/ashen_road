@@ -6,10 +6,16 @@ namespace AshenRoad.Visual
     public class Princess : MonoBehaviour
     {
         [SerializeField] Transform body;
+        [SerializeField] SpriteAnimator frames;
+
+        void Start()
+        {
+            if (frames != null) frames.Play("idle");
+        }
 
         void LateUpdate()
         {
-            if (body == null) return;
+            if (body == null || (frames != null && frames.HasArt)) return;
             body.localPosition = new Vector3(0f, Mathf.Abs(Mathf.Sin(Time.time * 3f)) * 0.05f, 0f);
         }
     }

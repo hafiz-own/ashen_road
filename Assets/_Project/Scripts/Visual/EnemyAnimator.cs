@@ -11,6 +11,7 @@ namespace AshenRoad.Visual
         [SerializeField] EnemyAI enemy;
         [SerializeField] Transform body;
         [SerializeField] SpriteRenderer bodyRenderer;
+        [SerializeField] SpriteAnimator frames;
 
         float flashUntil;
         bool blockedFlash;
@@ -39,6 +40,16 @@ namespace AshenRoad.Visual
         {
             if (enemy == null || enemy.Data == null || body == null) return;
             var state = enemy.Machine.Current;
+            if (frames != null)
+            {
+                if (frames.Art != enemy.Data.art) frames.Art = enemy.Data.art;
+                if (frames.HasArt)
+                {
+                    bool moving = Mathf.Abs(enemy.Motor.Velocity.x) > 0.2f && !(state is EnemyDeadState);
+                    if (moving || state is EnemyAttackState) frames.Play("walk");
+                    else frames.ShowNormalized("walk", 0f);
+                }
+            }
             Vector3 pos = Vector3.zero;
             float angle = 0f;
             Vector3 scale = Vector3.one;

@@ -14,6 +14,7 @@ namespace AshenRoad.Visual
         [SerializeField] Transform body;
         [SerializeField] SpriteRenderer bodyRenderer;
         [SerializeField] Transform sword;
+        [SerializeField] SpriteAnimator frames;
 
         Vector3 squash = Vector3.one;
         float deathTilt;
@@ -82,6 +83,20 @@ namespace AshenRoad.Visual
                 bodyRenderer.color = c;
             }
 
+            if (frames != null && frames.HasArt)
+            {
+                PickClip(state, v);
+                // the animated art carries its own sword, and squash/spin read badly on detailed frames
+                if (sword != null) sword.gameObject.SetActive(false);
+                if (!(state is PlayerRollingState) && !(state is PlayerDeadState))
+                {
+                    body.localRotation = Quaternion.identity;
+                    body.localPosition = Vector3.zero;
+                    body.localScale = Vector3.Lerp(Vector3.one, scale, 0.4f);
+                }
+                return;
+            }
+
             if (sword != null)
             {
                 bool show = !(state is PlayerRollingState) && !(state is PlayerDeadState);
@@ -89,6 +104,30 @@ namespace AshenRoad.Visual
                 float swingAngle = player.Combat.IsSwinging ? Mathf.Lerp(130f, -80f, Mathf.SmoothStep(0f, 1f, player.Combat.SwingProgress * 1.4f)) : -30f;
                 sword.localRotation = Quaternion.Euler(0f, 0f, swingAngle);
                 sword.localPosition = new Vector3(player.Combat.IsSwinging ? 0.25f : 0.3f, 0.42f + pos.y, 0f);
+            }
+        }
+
+        void PickClip(Core.IState state, Vector2 v)
+        {
+            switch (state)
+            {
+                case PlayerAttackingState _:
+                    frames.ShowNormalized("attack", player.Combat.SwingProgress);
+                    break;
+                case PlayerRollingState _:
+                    frames.Play("crouch");
+                    break;
+                case PlayerHurtState _:
+                case PlayerDeadState _:
+                    frames.Play("hurt");
+                    break;
+                case PlayerAirborneState _:
+                    // rising frames on the way up, falling frames on the way down
+                    frames.ShowNormalized("jump", v.y > 2f ? 0.1f : v.y > -2f ? 0.45f : 0.85f);
+                    break;
+                default:
+                    frames.Play(Mathf.Abs(v.x) > 0.5f ? "run" : "idle");
+                    break;
             }
         }
     }

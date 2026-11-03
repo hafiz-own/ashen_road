@@ -11,6 +11,7 @@ namespace AshenRoad.Visual
         [SerializeField] BossController boss;
         [SerializeField] Transform body;
         [SerializeField] SpriteRenderer bodyRenderer;
+        [SerializeField] SpriteAnimator frames;
 
         float flashUntil;
 
@@ -32,6 +33,13 @@ namespace AshenRoad.Visual
         {
             if (boss == null || boss.Data == null || body == null || bodyRenderer == null) return;
             if (boss.Machine.Current is BossDefeatedState) return;
+
+            if (frames != null && frames.HasArt)
+            {
+                if (boss.Telegraph >= 0f) frames.ShowNormalized("attack", boss.Telegraph * 0.6f);
+                else if (boss.SwingHitbox != null && boss.SwingHitbox.IsOpen) frames.ShowNormalized("attack", 0.8f);
+                else frames.Play("idle");
+            }
 
             Vector3 pos = Vector3.zero;
             Vector3 scale = new Vector3(1f, 1f + Mathf.Sin(Time.time * 2.5f) * 0.03f, 1f);

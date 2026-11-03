@@ -22,6 +22,8 @@ namespace AshenRoad.Data
         public char layoutSymbol = 'S';
         public GameObject prefab;
         public Sprite sprite;
+        [Tooltip("Animated frames. When set, these replace the single sprite.")]
+        public CharacterArt art;
         public Color tint = Color.white;
         public float scale = 1f;
         public Vector2 colliderSize = new Vector2(0.7f, 0.9f);
