@@ -32,7 +32,7 @@ THEMES = {
     "swamp":    dict(src="swamp", top=[(14, 0, 0), (15, 0, 0), (16, 0, 0), (17, 0, 0)], fill=[(14, 1), (15, 1), (16, 1)], deep=[(15, 3)], plat=(14, 5, 0)),
     "rocky":    dict(src="rocky", top=[(3, 1, 0), (4, 1, 0)], fill=[(3, 2), (4, 2), (3, 3), (4, 3)], deep=[(3, 6)], plat=(3, 1, 0)),
     "castle":   dict(src="castle", top=[(2, 2, 0), (3, 2, 0)], fill=[(2, 3), (3, 3)], deep=[(2, 5)], plat=(5, 2, 0)),
-    "horror":   dict(src="horror", top=[(2, 4, 0), (5, 4, 0)], fill=[(2, 5), (5, 5)], deep=[(2, 5)], plat=(3, 1, 0)),
+    "horror":   dict(src="horror", top=[(2, 4, 0)], fill=[(2, 5)], deep=[(2, 5)], plat=(3, 1, 0)),
     "dark":     dict(src="dark", top=[(20, 10, 2), (23, 10, 2)], fill=[(20, 11), (20, 12), (23, 11)], deep=[(20, 13)], plat=(4, 5, 0)),
     "junk":     dict(src="junk", top=[(4, 0, 0), (5, 0, 0)], fill=[(4, 2), (5, 2)], deep=[(4, 5)], plat=(4, 0, 0)),
 }
@@ -131,8 +131,6 @@ def save_centered(frame, cx, feet, flip, path):
 
 # ------------------------------------------------------------------ effects
 def effects():
-    for i, f in enumerate(files(CHURCH + "wizard/fire-sprites/fire{}.png", 10)):
-        f.save(out("Effects", f"fire_{i}.png"))
     for i, f in enumerate(files(CEM + "enemy-death/enemy-death-{}.png", 5)):
         f.save(out("Effects", f"death_{i}.png"))
 
@@ -204,6 +202,17 @@ def props():
     horror.crop((28 * 16, 0, 47 * 16, 11 * 16)).save(out("Props", "horror", "brick-house.png"))
     horror.crop((14 * 16, 4 * 16, 16 * 16, 10 * 16)).save(out("Props", "horror", "shrine.png"))
     horror.crop((16 * 16, 4 * 16, 19 * 16, 10 * 16)).save(out("Props", "horror", "brazier.png"))
+
+
+def shift_hue(im, degrees):
+    """Rotates the hue of every pixel, keeping alpha."""
+    alpha = im.split()[3]
+    hsv = im.convert("RGB").convert("HSV")
+    h, sat, v = hsv.split()
+    h = h.point(lambda x: (x + int(degrees * 255 / 360)) % 256)
+    rgb = Image.merge("HSV", (h, sat, v)).convert("RGB")
+    rgb.putalpha(alpha)
+    return rgb
 
 
 def split_by_gaps(im):

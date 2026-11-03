@@ -10,6 +10,7 @@ using AshenRoad.Level.Hazards;
 using AshenRoad.Player;
 using AshenRoad.UI;
 using AshenRoad.Visual;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -57,8 +58,9 @@ namespace AshenRoad.EditorTools
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb.sharedMaterial = frictionless;
             var capsule = root.AddComponent<CapsuleCollider2D>();
-            capsule.size = new Vector2(0.6f, 0.9f);
-            capsule.offset = new Vector2(0f, 0.46f);
+            bool animated = KnightArt != null && KnightArt.clips.Length > 0;
+            capsule.size = animated ? new Vector2(0.6f, 1.25f) : new Vector2(0.6f, 0.9f);
+            capsule.offset = new Vector2(0f, capsule.size.y * 0.5f + 0.01f);
             capsule.sharedMaterial = frictionless;
 
             Health health = root.AddComponent<Health>();
@@ -72,11 +74,18 @@ namespace AshenRoad.EditorTools
             var hitbox = hitboxGo.AddComponent<Hitbox>();
 
             var animator = root.AddComponent<PlayerAnimator>();
+            SpriteAnimator knightFrames = null;
+            if (animated)
+            {
+                knightFrames = body.gameObject.AddComponent<SpriteAnimator>();
+                Set(knightFrames).Ref("target", body).Ref("art", KnightArt).Apply();
+                body.sprite = KnightArt.Get("idle").frames[0];
+            }
 
             Set(movement).Ref("body", capsule).Apply();
             Set(combat).Ref("swordHitbox", hitbox).Apply();
             Set(controller).Ref("stats", AssetDatabase.LoadAssetAtPath<PlayerStats>(DataRoot + "/PlayerStats.asset")).Apply();
-            Set(animator).Ref("player", controller).Ref("body", body.transform).Ref("bodyRenderer", body).Ref("sword", sword.transform).Apply();
+            Set(animator).Ref("player", controller).Ref("body", body.transform).Ref("bodyRenderer", body).Ref("sword", sword.transform).Ref("frames", knightFrames).Apply();
             Set(health).Int("maxHealth", 3).Apply();
             SavePrefab(root, PrefabRoot + "/Knight.prefab");
         }
@@ -105,11 +114,13 @@ namespace AshenRoad.EditorTools
             SpriteRenderer body = SpriteChild(root.transform, "Visual", Sprite(Kenney + "/shambler.png"), OrderEnemy, Vector3.zero);
             var hitbox = Go("AttackHitbox", root.transform, Layers.Enemy).AddComponent<Hitbox>();
             var animator = root.AddComponent<EnemyAnimator>();
+            var enemyFrames = body.gameObject.AddComponent<SpriteAnimator>();
+            Set(enemyFrames).Ref("target", body).Apply();
 
             Set(motor).Ref("body", box).Apply();
             Set(contact).Ref("body", box).Apply();
             Set(ai).Ref("attackHitbox", hitbox).Ref("contactDamage", contact).Ref("visual", body).Ref("body", box).Apply();
-            Set(animator).Ref("enemy", ai).Ref("body", body.transform).Ref("bodyRenderer", body).Apply();
+            Set(animator).Ref("enemy", ai).Ref("body", body.transform).Ref("bodyRenderer", body).Ref("frames", enemyFrames).Apply();
             SavePrefab(root, PrefabRoot + "/Enemy.prefab");
         }
 
@@ -137,11 +148,17 @@ namespace AshenRoad.EditorTools
             var swing = Go("SwingHitbox", root.transform, Layers.Enemy).AddComponent<Hitbox>();
             var charge = Go("ChargeHitbox", root.transform, Layers.Enemy).AddComponent<Hitbox>();
             var animator = root.AddComponent<BossAnimator>();
+            SpriteAnimator bossFrames = null;
+            if (BossArt != null && BossArt.clips.Length > 0)
+            {
+                bossFrames = body.gameObject.AddComponent<SpriteAnimator>();
+                Set(bossFrames).Ref("target", body).Ref("art", BossArt).Apply();
+            }
 
             Set(motor).Ref("body", box).Apply();
             Set(contact).Ref("body", box).Apply();
             Set(boss).Ref("swingHitbox", swing).Ref("chargeHitbox", charge).Ref("contactDamage", contact).Ref("visual", body).Ref("body", box).Apply();
-            Set(animator).Ref("boss", boss).Ref("body", body.transform).Ref("bodyRenderer", body).Apply();
+            Set(animator).Ref("boss", boss).Ref("body", body.transform).Ref("bodyRenderer", body).Ref("frames", bossFrames).Apply();
             SavePrefab(root, PrefabRoot + "/AshWarden.prefab");
         }
 
@@ -156,7 +173,15 @@ namespace AshenRoad.EditorTools
                 SpriteRenderer body = SpriteChild(root.transform, "Visual", Sprite(Kenney + "/princess.png"), OrderPrincess, Vector3.zero);
                 SpriteRenderer cage = SpriteChild(root.transform, "Cage", Sprite(Gen + "/Props/gate_bars.png"), OrderPrincess + 1, new Vector3(0f, 1.3f, 0f));
                 cage.transform.localScale = new Vector3(1.1f, 1f, 1f);
-                Set(root.GetComponent<Princess>()).Ref("body", body.transform).Apply();
+                SpriteAnimator princessFrames = null;
+                if (PrincessArt != null && PrincessArt.clips.Length > 0)
+                {
+                    princessFrames = body.gameObject.AddComponent<SpriteAnimator>();
+                    Set(princessFrames).Ref("target", body).Ref("art", PrincessArt).Apply();
+                    body.sprite = PrincessArt.clips[0].frames[0];
+                    cage.transform.localScale = new Vector3(1.2f, 1.1f, 1f);
+                }
+                Set(root.GetComponent<Princess>()).Ref("body", body.transform).Ref("frames", princessFrames).Apply();
                 SavePrefab(root, PrefabRoot + "/Princess.prefab");
             }
             // checkpoint
@@ -205,8 +230,12 @@ namespace AshenRoad.EditorTools
                 var hitbox = Go("Hitbox", root.transform).AddComponent<Hitbox>();
                 Set(hitbox).Vec2("size", new Vector2(0.9f, 1.3f)).Vec2("offset", new Vector2(0f, 0.65f)).Apply();
                 var fire = root.AddComponent<FirePatch>();
+                Sprite[] gvFire = Sprites("Effects", "fire_");
+                Object[] fireFrames = gvFire.Length > 0 ? gvFire.Cast<Object>().ToArray()
+                    : new Object[] { Sprite(Gen + "/Props/fire_0.png"), Sprite(Gen + "/Props/fire_1.png"), Sprite(Gen + "/Props/fire_2.png") };
+                if (gvFire.Length > 0) flames.sprite = gvFire[0];
                 Set(fire).Ref("hitbox", hitbox).Ref("flames", flames).Ref("warning", warn)
-                    .Refs("flameFrames", new Object[] { Sprite(Gen + "/Props/fire_0.png"), Sprite(Gen + "/Props/fire_1.png"), Sprite(Gen + "/Props/fire_2.png") })
+                    .Refs("flameFrames", fireFrames)
                     .Float("knockback", 5f).Apply();
                 SavePrefab(root, PrefabRoot + "/FirePatch.prefab");
             }

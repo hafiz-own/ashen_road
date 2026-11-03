@@ -198,6 +198,8 @@ namespace AshenRoad.EditorTools
                 levels.Add(level);
             }
 
+            ApplyGothicvaniaArt(stats, shambler, runner, brute, boss, levels);
+
             var catalog = BuilderUtil.LoadOrCreate<LevelCatalog>(DataRoot + "/LevelCatalog.asset");
             catalog.levels = levels;
             catalog.enemyTypes = new[] { shambler, runner, brute };

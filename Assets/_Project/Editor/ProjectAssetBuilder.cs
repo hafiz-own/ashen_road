@@ -122,6 +122,7 @@ namespace AshenRoad.EditorTools
                 if (path.EndsWith("shadow.png") || path.EndsWith("fire_warn.png") || path.EndsWith("gate_bars.png"))
                     settings.spriteAlignment = (int)SpriteAlignment.Center;
                 if (path.Contains("/Tiles/")) settings.spriteAlignment = (int)SpriteAlignment.Center;
+                if (path.StartsWith(GV)) ConfigureGothicvania(path, importer, settings);
                 importer.SetTextureSettings(settings);
                 if (ui && (path.EndsWith("panel.png") || path.Contains("button")))
                     importer.spriteBorder = new Vector4(6, 6, 6, 6);
