@@ -164,5 +164,54 @@ namespace AshenRoad.Tests
                 Core.GameEvents.PlayerDied -= listener;
             }
         }
+
+        // The level checker assumes these moves are possible; these tests prove them with real physics.
+
+        [UnityTest]
+        public IEnumerator RunningJump_ClearsAThreeTileGap()
+        {
+            world.Ground(-10f, 0f);
+            world.Ground(3f, 20f);
+            PlayerController k = world.Knight(new Vector2(-6f, 0.2f));
+            yield return Settle(k);
+            k.SetScriptedMove(1f);
+            float until = Time.time + 3f;
+            while (k.Position.x < -0.4f && Time.time < until) yield return new WaitForFixedUpdate();
+            k.PressJump();
+            until = Time.time + 2f;
+            while (k.Position.x < 4f && Time.time < until && k.Position.y > -2f) yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(0.3f);
+            Assert.Greater(k.Position.x, 3.2f, "landed on the far side");
+            Assert.AreEqual(0f, k.Position.y, 0.1f);
+        }
+
+        [UnityTest]
+        public IEnumerator Jump_ReachesALedgeTwoTilesUp()
+        {
+            world.Ground(-10f, 2f);
+            world.Ground(2f, 12f, 2f, 4f);
+            PlayerController k = world.Knight(new Vector2(-2f, 0.2f));
+            yield return Settle(k);
+            k.SetScriptedMove(1f);
+            k.PressJump();
+            yield return new WaitForSeconds(1.2f);
+            Assert.Greater(k.Position.x, 2.5f);
+            Assert.AreEqual(2f, k.Position.y, 0.1f, "standing on the ledge");
+        }
+
+        [UnityTest]
+        public IEnumerator MovingPlatform_CarriesTheKnight()
+        {
+            world.Ground(-10f, 0f);
+            Level.MovingPlatform platform = world.Prefab<Level.MovingPlatform>("MovingPlatform", new Vector2(0f, -1f));
+            platform.SetWidth(3);
+            platform.Setup(new Vector2(6f, 0f), 2f);
+            PlayerController k = world.Knight(new Vector2(1.5f, 0.3f));
+            yield return Settle(k);
+            float startX = k.Position.x;
+            yield return new WaitForSeconds(1.5f);
+            Assert.Greater(k.Position.x, startX + 1.5f, "rode along");
+            Assert.IsTrue(k.Movement.IsGrounded);
+        }
     }
 }
