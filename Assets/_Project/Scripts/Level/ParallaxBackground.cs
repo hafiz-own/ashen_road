@@ -12,14 +12,13 @@ namespace AshenRoad.Level
         [SerializeField] SpriteRenderer near;
         [SerializeField] float farFactor = 0.85f;
         [SerializeField] float nearFactor = 0.65f;
-        [SerializeField] float layerHeight = 14f;
 
         public void Apply(LevelData data)
         {
             if (cameraTransform == null && UnityEngine.Camera.main != null) cameraTransform = UnityEngine.Camera.main.transform;
             Set(sky, data.sky, new Vector2(80f, 40f), false);
-            Set(far, data.farLayer, new Vector2(400f, layerHeight), true);
-            Set(near, data.nearLayer, new Vector2(400f, layerHeight), true);
+            Set(far, data.farLayer, new Vector2(400f, 0f), true);
+            Set(near, data.nearLayer, new Vector2(400f, 0f), true);
         }
 
         static void Set(SpriteRenderer r, Sprite s, Vector2 size, bool tiled)
@@ -30,7 +29,8 @@ namespace AshenRoad.Level
             {
                 r.drawMode = SpriteDrawMode.Tiled;
                 r.tileMode = SpriteTileMode.Continuous;
-                r.size = size;
+                // repeat sideways only: keep the sprite's own height so it never tiles vertically
+                r.size = new Vector2(size.x, s.bounds.size.y);
             }
             else
             {

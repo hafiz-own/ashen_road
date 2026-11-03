@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Runs all EditMode and PlayMode tests headless and prints a summary. Results: TestResults/*.xml
+# Runs the EditMode and PlayMode tests headless (or only the platforms given as arguments). Results: TestResults/*.xml
 set -euo pipefail
 cd "$(dirname "$0")"
 mkdir -p TestResults
 status=0
-for platform in EditMode PlayMode; do
+platforms="${*:-EditMode PlayMode}"
+for platform in $platforms; do
   echo "== $platform tests"
   ./unity.sh -runTests -testPlatform "$platform" -testResults "$PWD/TestResults/$platform.xml" \
     -logFile "Logs/tests_$platform.log" || status=1

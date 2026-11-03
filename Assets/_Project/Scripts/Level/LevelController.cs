@@ -48,12 +48,14 @@ namespace AshenRoad.Level
         {
             GameEvents.ExitReached += OnExitReached;
             GameEvents.BossIntroStarted += OnBossIntro;
+            GameEvents.BossDefeated += OnBossDefeated;
         }
 
         void OnDisable()
         {
             GameEvents.ExitReached -= OnExitReached;
             GameEvents.BossIntroStarted -= OnBossIntro;
+            GameEvents.BossDefeated -= OnBossDefeated;
         }
 
         void Start()
@@ -166,6 +168,13 @@ namespace AshenRoad.Level
         void OnBossIntro()
         {
             Front?.Pause();
+        }
+
+        void OnBossDefeated()
+        {
+            // the Warden's summons crumble with him
+            foreach (EnemyAI e in factory.Live)
+                if (e != null && !e.IsDead) e.Health.Kill(Combat.DamageType.Hazard);
         }
     }
 }

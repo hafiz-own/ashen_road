@@ -45,6 +45,7 @@ namespace AshenRoad.Level
         {
             knight.InputLocked = true;
             knight.SetScriptedMove(0f);
+            knight.Health.SetManualInvulnerable(true);
             GameEvents.RaiseSound("ending_music");
             yield return new WaitForSeconds(1.2f);
 

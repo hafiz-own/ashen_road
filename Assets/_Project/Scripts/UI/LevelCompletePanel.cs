@@ -18,10 +18,10 @@ namespace AshenRoad.UI
             UIFactory.Place(title.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 300f), new Vector2(1400f, 120f));
             heading = UIFactory.Text("Level", transform, style, "", 36, TextAnchor.MiddleCenter, style.text);
             UIFactory.Place(heading.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 210f), new Vector2(1400f, 60f));
-            stats = UIFactory.Text("Stats", transform, style, "", 32, TextAnchor.UpperCenter, style.text);
-            UIFactory.Place(stats.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(900f, 200f));
+            stats = UIFactory.Text("Stats", transform, style, "", 32, TextAnchor.MiddleCenter, style.text);
+            UIFactory.Place(stats.rectTransform, new Vector2(0.5f, 0.5f), new Vector2(0f, 60f), new Vector2(900f, 190f));
 
-            RectTransform col = ButtonColumn(new Vector2(0f, -170f), 460f, 3);
+            RectTransform col = ButtonColumn(new Vector2(0f, -210f), 460f, 3);
             Vector2 size = new Vector2(460f, 64f);
             next = UIFactory.Button("Next", col, style, "Next Level", () => Game?.NextLevel(), size);
             replay = UIFactory.Button("Replay", col, style, "Replay", () => Game?.RestartLevel(), size);

@@ -14,7 +14,7 @@ namespace AshenRoad.Cameras
         [SerializeField] float smoothTime = 0.18f;
         [SerializeField] float lookAhead = 2.8f;
         [SerializeField] float lookAheadSpeed = 3f;
-        [SerializeField] float verticalOffset = 1.6f;
+        [SerializeField] float verticalOffset = 2.2f;
         [SerializeField] float verticalSmoothTime = 0.3f;
 
         UnityEngine.Camera cam;

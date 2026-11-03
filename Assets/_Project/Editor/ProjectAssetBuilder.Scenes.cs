@@ -32,8 +32,25 @@ namespace AshenRoad.EditorTools
             };
         }
 
+        /// <summary>2D sprites need no global illumination; turning it off stops background light baking.</summary>
+        static void NoLighting()
+        {
+            const string path = SceneRoot + "/NoGI.lighting";
+            var settings = AssetDatabase.LoadAssetAtPath<LightingSettings>(path);
+            if (settings == null)
+            {
+                settings = new LightingSettings { bakedGI = false, realtimeGI = false, autoGenerate = false };
+                AssetDatabase.CreateAsset(settings, path);
+            }
+            Lightmapping.lightingSettings = settings;
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            RenderSettings.ambientLight = Color.white;
+            RenderSettings.skybox = null;
+        }
+
         static UnityEngine.Camera CreateCamera(Scene scene, Color background)
         {
+            NoLighting();
             GameObject go = Go("Main Camera");
             go.tag = "MainCamera";
             var cam = go.AddComponent<UnityEngine.Camera>();

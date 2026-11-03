@@ -552,7 +552,9 @@ def level8():
     L.heart()
     L.flat(8, "RS")
     L.checkpoint()
-    L.flat(10)
+    L.flat(4)
+    L.heart()
+    L.flat(4)
     L.arena(28)
     return L
 

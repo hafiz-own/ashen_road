@@ -111,7 +111,7 @@ namespace AshenRoad.Level
                 killZone.size = new Vector2(layout.Width + 60f, 3f);
                 killZone.transform.position = new Vector3(layout.Width * 0.5f, built.KillY, 0f);
             }
-            built.Bounds = new Rect(0f, -3f, layout.Width, layout.Height + 8f);
+            built.Bounds = new Rect(0f, -1f, layout.Width, layout.Height + 6f);
         }
 
         void PlaceMarkers(LevelData data, LevelPrefabs prefabs, LevelCatalog catalog, LevelLayout layout, BuiltLevel built)
