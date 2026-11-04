@@ -1,0 +1,21 @@
+# Unity serialises scenes, prefabs and assets as YAML text
+*.unity     text eol=lf
+*.prefab    text eol=lf
+*.asset     text eol=lf
+*.meta      text eol=lf
+*.mat       text eol=lf
+*.lighting  text eol=lf
+*.inputactions text eol=lf
+*.cs        text eol=lf diff=csharp
+*.py        text eol=lf
+*.sh        text eol=lf
+*.md        text eol=lf
+*.txt       text eol=lf
+
+# binary art, audio, fonts and documents
+*.png  binary
+*.ogg  binary
+*.wav  binary
+*.ttf  binary
+*.pdf  binary
+*.docx binary
