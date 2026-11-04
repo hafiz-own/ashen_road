@@ -50,9 +50,9 @@ namespace AshenRoad.UI
                 bool unlocked = Game.Save.IsUnlocked(i);
                 float best = Game.Save.GetBestTime(i);
                 buttons[i].interactable = unlocked;
-                labels[i].fontSize = 26;
+                labels[i].fontSize = 32;
                 labels[i].text = unlocked
-                    ? $"{i + 1}. {level.displayName}\n<size=20>{(best >= 0f ? "Best " + LevelResult.FormatTime(best) : level.subtitle)}</size>"
+                    ? $"{i + 1}. {level.displayName}\n<size=24>{(best >= 0f ? "Best " + LevelResult.FormatTime(best) : level.subtitle)}</size>"
                     : $"{i + 1}. Locked";
                 labels[i].color = unlocked ? style.text : style.textDim;
             }

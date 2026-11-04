@@ -51,9 +51,12 @@ namespace AshenRoad.UI
         {
             RectTransform rt = Rect(name, parent);
             var t = rt.gameObject.AddComponent<Text>();
-            t.font = style.font != null ? style.font : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            // big headings use the display face, everything else the readable body face
+            Font face = size >= 56 && style.titleFont != null ? style.titleFont : style.font;
+            t.font = face != null ? face : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             t.text = content;
-            t.fontSize = size;
+            // Alegreya sits smaller than the old pixel font at the same point size, so body text is scaled up
+            t.fontSize = face == style.titleFont ? size : Mathf.RoundToInt(size * 1.3f);
             t.alignment = align;
             t.color = color ?? style.text;
             t.horizontalOverflow = HorizontalWrapMode.Wrap;

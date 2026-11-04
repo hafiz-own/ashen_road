@@ -284,8 +284,11 @@ namespace AshenRoad.EditorTools
         static void CreateUIStyle()
         {
             var style = BuilderUtil.LoadOrCreate<UIStyle>(DataRoot + "/UIStyle.asset");
-            style.font = AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/kenpixel.ttf");
-            style.titleFont = AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/kenpixel_high.ttf");
+            // readable body text (Alegreya Sans) and a gothic display face for titles (Cinzel Decorative); both SIL OFL
+            style.font = AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/AlegreyaSans-Bold.ttf")
+                         ?? AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/kenpixel.ttf");
+            style.titleFont = AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/CinzelDecorative-Bold.ttf")
+                              ?? AssetDatabase.LoadAssetAtPath<Font>(ArtRoot + "/Fonts/kenpixel_high.ttf");
             style.panel = BuilderUtil.Sprite(Gen + "/UI/panel.png");
             style.button = BuilderUtil.Sprite(Gen + "/UI/button.png");
             style.buttonHighlight = BuilderUtil.Sprite(Gen + "/UI/button_hover.png");

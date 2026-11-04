@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02953d82840fdeedda475dbc3b56daf1, type: 3}
   m_Name: UIStyle
   m_EditorClassIdentifier: AshenRoad.Runtime::AshenRoad.UI.UIStyle
-  font: {fileID: 12800000, guid: 89ed3da492ec2fde2944b0ff328859b1, type: 3}
-  titleFont: {fileID: 12800000, guid: 7d2b66fc49eae94b183441110d50776a, type: 3}
+  font: {fileID: 12800000, guid: 3e06200f18b492d80b0cd539bc789756, type: 3}
+  titleFont: {fileID: 12800000, guid: 3eb67bceb3c7233ceb57149b7d65dfe1, type: 3}
   panel: {fileID: 21300000, guid: f4b9ac22886c1e8efb20ea811d1c064a, type: 3}
   button: {fileID: 21300000, guid: 04edbf29bac4fd468869de696044d613, type: 3}
   buttonHighlight: {fileID: 21300000, guid: 5b5982d7fa43c03e095ada9179f9bb24, type: 3}

@@ -19,7 +19,7 @@ namespace AshenRoad.UI
                 "ASHEN ROAD  ·  EC-334 Game Design and Development\n\n" +
                 "Hassan Ayoub  ·  Hafiz Own  ·  Abdul Basit\n\n" +
                 "Art: Gothicvania by Luis Zuno (ansimuz), CC0\n" +
-                "Fonts, items, sounds: Kenney (kenney.nl), CC0\n" +
+                "Items and sounds: Kenney (kenney.nl), CC0  ·  Fonts: Cinzel Decorative, Alegreya Sans (OFL)\n" +
                 "Music: Juhani Junkala, Retro Game Music Pack, CC0\n" +
                 "Built with Unity and C#",
                 24, TextAnchor.MiddleCenter, style.textDim);
