@@ -36,16 +36,21 @@ whole time, so every fight costs you distance.
 
 ## 1. Quick start: play the game
 
-### Option A: the ready-made Linux build (no Unity needed)
+### Option A: a ready-made build (no Unity needed)
 
-The built game is **not stored in git**, because each build is about 100 MB. Get it from the repository's
-**Releases** page, or build it yourself (see [section 7](#7-building-the-game)).
+Builds are **not stored in git** because each one is about 100 MB. Download the zip for your system from the
+repository's **Releases** page, or build it yourself (see [section 7](#7-building-the-game)).
 
-| Build | What it is |
+| Download | System |
 |---|---|
-| `AshenRoad-Linux-v2-Gothicvania.zip` | **Latest version.** Animated characters and Gothicvania scenery. |
-| `AshenRoad-Linux-v1-Kenney.zip` | First version, with the simpler Kenney art. Kept for comparison. |
+| `AshenRoad-Linux-v2-Gothicvania.zip` | **Linux** (64-bit), latest version |
+| `AshenRoad-Windows-v2.zip` | **Windows** 10/11 (64-bit) |
+| `AshenRoad-macOS-v2.zip` | **macOS** 11+ (one app for both Apple Silicon and Intel) |
+| `AshenRoad-Linux-v1-Kenney.zip` | Linux, first version with the simpler Kenney art, kept for comparison |
 
+A Unity build is a **folder**, not a single file. Keep everything in the zip together.
+
+**Linux**
 ```bash
 unzip AshenRoad-Linux-v2-Gothicvania.zip
 cd Linux-Gothicvania
@@ -53,28 +58,36 @@ chmod +x AshenRoad.x86_64        # only needed if the zip lost the executable bi
 ./AshenRoad.x86_64
 ```
 
-If you built the game locally, run it straight from the repository folder:
+**Windows:** unzip, open the `Windows` folder and double-click **`AshenRoad.exe`**. Keep `AshenRoad_Data`,
+`UnityPlayer.dll` and the other files next to it. The first time, Windows SmartScreen may say *"Windows protected your PC"*
+because the game isn't signed. Click **More info → Run anyway**.
+
+**macOS:** unzip and move **`AshenRoad.app`** wherever you like. The app isn't signed with a paid Apple developer ID, so the
+first launch is blocked with *"cannot be opened because the developer cannot be verified"*. Do one of these once:
+* **right-click (or Control-click) the app → Open → Open**, or
+* *System Settings → Privacy & Security* → scroll down → **Open Anyway**, or
+* in Terminal: `xattr -cr /path/to/AshenRoad.app`, then open it normally.
+
+**Built locally?** Run it straight from the repository folder:
 
 ```bash
-./Builds/Linux-Gothicvania/AshenRoad.x86_64     # latest
-./Builds/Linux/AshenRoad.x86_64                 # first version
+./Builds/Linux-Gothicvania/AshenRoad.x86_64     # Linux, latest
+./Builds/Linux/AshenRoad.x86_64                 # Linux, first version
+# Builds/Windows/AshenRoad.exe and Builds/macOS/AshenRoad.app for the other systems
 ```
 
-Useful launch options:
+Useful launch options (Linux and Windows):
 
 ```bash
 ./Builds/Linux-Gothicvania/AshenRoad.x86_64 -screen-fullscreen 0 -screen-width 1280 -screen-height 720   # windowed
 ./Builds/Linux-Gothicvania/AshenRoad.x86_64 -logFile -                                                   # print the log to the terminal
 ```
 
-Keep the whole folder together: the launcher needs `AshenRoad_Data/`, `UnityPlayer.so` and the `libdecor` files next to it.
-
 ### Option B: play inside the Unity editor
 
 See [section 4](#4-open-the-project-in-unity). Open the project, open `Assets/_Project/Scenes/MainMenu.unity`, and press **Play**.
 
-**Requirements:** a 64-bit Linux desktop with OpenGL or Vulkan. Windows and macOS builds can be made from the editor
-once those build modules are installed in Unity Hub (see [section 7](#7-building-the-game)).
+**Requirements:** a 64-bit Linux desktop with OpenGL or Vulkan, Windows 10/11 64-bit, or macOS 11 or newer.
 
 ---
 
@@ -168,6 +181,8 @@ export UNITY=/path/to/Unity/Hub/Editor/6000.6.0f1/Editor/Unity
 |---|---|
 | `./run_tests.sh` | Runs every EditMode and PlayMode test and prints a summary. `./run_tests.sh EditMode` or `./run_tests.sh PlayMode` runs one set. |
 | `./build_linux.sh [folder]` | Builds the Linux game. The default folder is `Builds/Linux`; use `./build_linux.sh Builds/Linux-Gothicvania` for the latest-style build. |
+| `./build_windows.sh [folder]` | Builds the Windows game (default `Builds/Windows`). Needs *Windows Build Support (Mono)* in Unity Hub. |
+| `./build_mac.sh [folder]` | Builds a universal macOS app for Apple Silicon and Intel (default `Builds/macOS`). Needs *Mac Build Support (Mono)*. |
 | `./rebuild_assets.sh` | Regenerates the data assets, prefabs and scenes from code and the level files. This is the same as the editor menu **Ashen Road → Rebuild Project Assets**. |
 | `./unity.sh <args>` | Runs Unity in batch mode on this project with any extra arguments. |
 
@@ -210,26 +225,32 @@ PlayMode tests run silently (audio is muted while they run) and use an in-memory
 
 ## 7. Building the game
 
-From the command line:
+From the command line (close the editor first):
 
 ```bash
-./build_linux.sh Builds/Linux-Gothicvania     # latest build (what the Quick start runs)
+./build_linux.sh Builds/Linux-Gothicvania     # Linux, latest build (what the Quick start runs)
+./build_windows.sh                            # Windows  -> Builds/Windows/AshenRoad.exe
+./build_mac.sh                                # macOS    -> Builds/macOS/AshenRoad.app (universal)
 ```
 
-From the editor: **Ashen Road → Build Linux Player**, or *File → Build Profiles*. The build includes the scenes
-`MainMenu` and `Level`, in that order.
+From the editor: **Ashen Road → Build Linux Player / Build Windows Player / Build macOS Player**, or *File → Build
+Profiles*. Every build includes the scenes `MainMenu` and `Level`, in that order, and needs no code changes per platform.
 
-**Windows / macOS:** in Unity Hub, add the *Windows Build Support (Mono)* or *Mac Build Support (Mono)* module to
-6000.6.0f1, then build from *File → Build Profiles*. No code changes are needed.
+**Build modules:** Linux works out of the box. For Windows and macOS, add the modules in *Unity Hub → Installs →
+6000.6.0f1 → ⚙ → Add modules → Windows Build Support (Mono) / Mac Build Support (Mono)*. Without a module, the script
+stops and says which one is missing.
 
-**Publishing a release:** zip the build folder and attach the zip to a GitHub Release. Don't commit build folders, since
-`Builds/` and `Releases/` are git-ignored on purpose.
+**Publishing a release:** zip each build folder and attach the zips to a GitHub Release. Don't commit build folders,
+since `Builds/` and `Releases/` are git-ignored on purpose. Zip the Mac app with `-y` so its internal links survive.
 
 ```bash
-cd Builds && zip -r ../Releases/AshenRoad-Linux-v2-Gothicvania.zip Linux-Gothicvania
+cd Builds
+zip -r  ../Releases/AshenRoad-Linux-v2-Gothicvania.zip Linux-Gothicvania
+zip -r  ../Releases/AshenRoad-Windows-v2.zip Windows
+(cd macOS && zip -ry ../../Releases/AshenRoad-macOS-v2.zip AshenRoad.app)
 ```
 
----
+On GitHub: *Releases → Draft a new release → choose a tag (e.g. `v2.0`) → attach the zips → Publish*.
 
 ## 8. Changing the game
 
@@ -330,6 +351,8 @@ The full class-by-class breakdown is in [`docs/design/Ashen_Road_CRC_Cards_v2.pd
 | Problem | Fix |
 |---|---|
 | The build won't start: `Permission denied` | `chmod +x AshenRoad.x86_64` |
+| macOS: *"developer cannot be verified"* or *"is damaged"* | Right-click → Open, or run `xattr -cr AshenRoad.app` (see [section 1](#1-quick-start-play-the-game)). |
+| Windows: *"Windows protected your PC"* | Click **More info → Run anyway**. The build is not code-signed. |
 | The build starts and closes immediately | Run it with `-logFile -` to see the error. Make sure the whole build folder was copied. |
 | Scripts fail with *"Access token is unavailable"* / *"com.unity.editor.headless not found"* | Sign in to Unity Hub and activate a Personal license, then run the script again. |
 | Scripts fail with *"another Unity instance is running"* | Close the project in the editor, or end the stray `Unity -batchmode` process. |
